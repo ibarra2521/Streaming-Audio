@@ -1,25 +1,107 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RaJ-Gh-QRz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Main View Controller-->
+        <scene sceneID="uY8-Vx-NCp">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RaJ-Gh-QRz" customClass="MainViewController" customModule="Streaming_Audio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="jdz-sE-8Oi"/>
+                        <viewControllerLayoutGuide type="bottom" id="jjA-mq-aaq"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="Opo-dG-u45">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7q-NV-pZf">
+                                <rect key="frame" x="0.0" y="20" width="600" height="510"/>
+                                <connections>
+                                    <segue destination="uif-x1-QNv" kind="embed" id="AVD-Fx-gOg"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJF-Ug-F1d">
+                                <rect key="frame" x="279" y="550" width="42" height="30"/>
+                                <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="Pause:" destination="RaJ-Gh-QRz" eventType="touchUpInside" id="xYw-MM-aZY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjb-lS-dJc">
+                                <rect key="frame" x="341" y="550" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="Play:" destination="RaJ-Gh-QRz" eventType="touchUpInside" id="TuK-Pb-PL3"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kU4-al-s8S">
+                                <rect key="frame" x="-2" y="530" width="604" height="13"/>
+                                <connections>
+                                    <action selector="ChangeAudioTime:" destination="RaJ-Gh-QRz" eventType="valueChanged" id="VCs-oM-1WH"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kU4-al-s8S" firstAttribute="leading" secondItem="Opo-dG-u45" secondAttribute="leadingMargin" constant="-20" id="4Eg-fc-WFB"/>
+                            <constraint firstItem="kU4-al-s8S" firstAttribute="top" secondItem="y7q-NV-pZf" secondAttribute="bottom" id="8wM-w7-KBG"/>
+                            <constraint firstItem="y7q-NV-pZf" firstAttribute="centerX" secondItem="Opo-dG-u45" secondAttribute="centerX" id="FYs-EQ-fXQ"/>
+                            <constraint firstItem="vjb-lS-dJc" firstAttribute="leading" secondItem="ZJF-Ug-F1d" secondAttribute="trailing" constant="20" id="Ipi-9x-rPF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kU4-al-s8S" secondAttribute="trailing" constant="-20" id="Kte-nV-Y6n"/>
+                            <constraint firstItem="vjb-lS-dJc" firstAttribute="top" secondItem="kU4-al-s8S" secondAttribute="bottom" constant="8" id="QaV-2R-7ic"/>
+                            <constraint firstItem="jjA-mq-aaq" firstAttribute="top" secondItem="vjb-lS-dJc" secondAttribute="bottom" constant="20" id="RBB-L2-bCH"/>
+                            <constraint firstItem="y7q-NV-pZf" firstAttribute="leading" secondItem="Opo-dG-u45" secondAttribute="leading" id="TuV-sS-nBe"/>
+                            <constraint firstItem="ZJF-Ug-F1d" firstAttribute="baseline" secondItem="vjb-lS-dJc" secondAttribute="baseline" id="Un9-Lu-ROm"/>
+                            <constraint firstItem="ZJF-Ug-F1d" firstAttribute="centerX" secondItem="Opo-dG-u45" secondAttribute="centerX" id="Wx1-b6-OEg"/>
+                            <constraint firstItem="y7q-NV-pZf" firstAttribute="top" secondItem="jdz-sE-8Oi" secondAttribute="bottom" id="cnA-xH-4EP"/>
+                            <constraint firstItem="jjA-mq-aaq" firstAttribute="top" secondItem="ZJF-Ug-F1d" secondAttribute="bottom" constant="20" id="urQ-Ec-LVs"/>
+                            <constraint firstItem="vjb-lS-dJc" firstAttribute="top" secondItem="y7q-NV-pZf" secondAttribute="bottom" constant="20" id="yCY-Xf-gDW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="urQ-Ec-LVs"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="slider" destination="kU4-al-s8S" id="l2O-aW-k5b"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r92-EX-ITL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-278" y="380"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="l5L-BO-4SZ">
+            <objects>
+                <tableViewController id="uif-x1-QNv" customClass="TableViewController" customModule="Streaming_Audio" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5AU-pA-6dR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="510"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Vqm-Oi-LEn">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vqm-Oi-LEn" id="HBR-cg-NJq">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uif-x1-QNv" id="H0m-DK-UMh"/>
+                            <outlet property="delegate" destination="uif-x1-QNv" id="r6c-6J-KaX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iu0-zs-h7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="352"/>
         </scene>
     </scenes>
 </document>
